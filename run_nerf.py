@@ -754,6 +754,11 @@ def train():
             for j in range(numOfImages):
                 target_j = images[i_test[j]]
                 psnr_test = mse2psnr(img2mse(torch.Tensor(rgbs[j]), target_j))
+
+                print(f"rgbs[j]: {rgbs[j].shape}")
+                print(rgbs[j])
+                print(f"target_j.cpu().numpy(): {target_j.cpu().numpy().shape}")
+
                 ssim_test = structural_similarity(
                     rgbs[j], target_j.cpu().numpy(), multichannel=True)
                 print(
