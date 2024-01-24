@@ -725,7 +725,7 @@ def train():
             param_group['lr'] = new_lrate
         ################################
 
-        """
+        
         # Rest is logging
         if i % args.i_weights == 0:
             path = os.path.join(basedir, expname, '{:06d}.tar'.format(i))
@@ -776,7 +776,7 @@ def train():
                 with open(logfile, 'a') as file:
                     file.write('{}, {}, {}, {}, {}, {}\n'.format(
                         i, psnr.cpu().detach().numpy()[0], ssim, alt_rmse, alt_rmse, alt_comp))
-        """
+        
 
         if i % args.i_testset == 0 and i > 0:
             testsavedir = os.path.join(
