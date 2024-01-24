@@ -760,7 +760,7 @@ def train():
                 print(f"target_j.cpu().numpy(): {target_j.cpu().numpy().shape}")
 
                 ssim_test = structural_similarity(
-                    rgbs[j], target_j.cpu().numpy(), multichannel=True)
+                    rgbs[j], target_j.cpu().numpy(), multichannel=True,win_size=win_size,channel_axis=-1,data_range=data_range)
                 print(
                     f"[TEST {j}] Iter: {i}  PSNR: {psnr_test.item()}  SSIM: {ssim_test.item()}")
                 if args.savelogs:
