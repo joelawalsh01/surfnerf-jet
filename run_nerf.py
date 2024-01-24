@@ -684,6 +684,7 @@ def train():
                            torch.mean(1.0-sun)) * lambda_sc
             loss += shadow_loss
 
+        """
         # saving logs
         if i % args.i_print == 0 or i % args.i_video == 0:
             psnr = mse2psnr(rgb_loss)
@@ -697,6 +698,7 @@ def train():
                 with open(logfile, 'a') as file:
                     file.write('{}, {}, {}\n'.format(
                         i, psnr.cpu().detach().numpy()[0], ssim))
+        """
 
         if 'rgb0' in extras:
             img_loss0 = img2mse(extras['rgb0'], target_s)
