@@ -696,6 +696,7 @@ def train():
 
 
             print(f"rgb_reshaped size :{rgb_reshaped.size} ")
+            print(rgb_reshaped)
             print(f"target_s_reshaped :{target_s_reshaped.size} ")
 
             min_dim = min(H, W)
