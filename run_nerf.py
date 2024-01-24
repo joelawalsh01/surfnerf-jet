@@ -684,11 +684,11 @@ def train():
                            torch.mean(1.0-sun)) * lambda_sc
             loss += shadow_loss
 
-        
+        """
         # saving logs
         if i % args.i_print == 0 or i % args.i_video == 0:
             psnr = mse2psnr(rgb_loss)
-            """
+    
             H, W = 64, 64  # Example dimensions, adjust as per your actual image size
             rgb_reshaped = rgb.cpu().detach().numpy().reshape(H, W, 3)
             target_s_reshaped = target_s.cpu().detach().numpy().reshape(H, W, 3)
@@ -698,8 +698,7 @@ def train():
                 with open(logfile, 'a') as file:
                     file.write('{}, {}, {}\n'.format(
                         i, psnr.cpu().detach().numpy()[0], ssim))
-            """
-
+        """
         if 'rgb0' in extras:
             img_loss0 = img2mse(extras['rgb0'], target_s)
             loss = loss + img_loss0
@@ -716,6 +715,7 @@ def train():
             param_group['lr'] = new_lrate
         ################################
 
+        """
         # Rest is logging
         if i % args.i_weights == 0:
             path = os.path.join(basedir, expname, '{:06d}.tar'.format(i))
@@ -785,6 +785,7 @@ def train():
             tqdm.write(
                 f"[TRAIN] Iter: {i} Loss: {loss.item()}  PSNR: {psnr.item()}  SSIM: {ssim.item()}")
         global_step += 1
+        """
 
 
 if __name__ == '__main__':
