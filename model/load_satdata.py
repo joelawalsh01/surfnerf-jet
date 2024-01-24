@@ -274,7 +274,7 @@ def config_parser():
                         help='frequency of console printout and metric loggin')
     parser.add_argument("--i_img",     type=int, default=500,
                         help='frequency of tensorboard image logging')
-    parser.add_argument("--i_weights", type=int, default=10,
+    parser.add_argument("--i_weights", type=int, default=100000,
                         help='frequency of weight ckpt saving')
     parser.add_argument("--i_testset", type=int, default=500000,
                         help='frequency of testset saving')
