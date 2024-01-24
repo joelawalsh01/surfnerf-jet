@@ -689,17 +689,20 @@ def train():
         if i % args.i_print == 0 or i % args.i_video == 0:
             psnr = mse2psnr(rgb_loss)
 
-            """
+            
             H, W = 64, 64  # Example dimensions, adjust as per your actual image size
             rgb_reshaped = rgb.cpu().detach().numpy().reshape(H, W, 3)
             target_s_reshaped = target_s.cpu().detach().numpy().reshape(H, W, 3)
+
+            print(f"rgb_reshaped size :{rgb_reshaped.size} ")
+            print(f"target_s_reshaped :{target_s_reshaped.size} ")
 
             ssim = structural_similarity(rgb_reshaped, target_s_reshaped, multichannel=True)
             if args.savelogs:
                 with open(logfile, 'a') as file:
                     file.write('{}, {}, {}\n'.format(
                         i, psnr.cpu().detach().numpy()[0], ssim))
-            """
+            
         
         if 'rgb0' in extras:
             img_loss0 = img2mse(extras['rgb0'], target_s)
