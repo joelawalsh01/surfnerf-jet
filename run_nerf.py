@@ -696,13 +696,13 @@ def train():
 
 
             print(f"rgb_reshaped size :{rgb_reshaped.size} ")
-            print(rgb_reshaped)
             print(f"target_s_reshaped :{target_s_reshaped.size} ")
 
+            data_range = 1.0
             min_dim = min(H, W)
             win_size = min_dim - 1 if min_dim % 2 == 0 else min_dim
 
-            ssim = structural_similarity(rgb_reshaped, target_s_reshaped, multichannel=True, win_size=win_size,channel_axis=-1)
+            ssim = structural_similarity(rgb_reshaped, target_s_reshaped, multichannel=True, win_size=win_size,channel_axis=-1,data_range=data_range)
             if args.savelogs:
                 with open(logfile, 'a') as file:
                     file.write('{}, {}, {}\n'.format(
