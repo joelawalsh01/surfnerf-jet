@@ -12,7 +12,6 @@ import numpy as np
 import torch.nn.functional as F
 import torch
 import random
-import ffmpeg
 
 # make it reproducible
 random.seed(1)
