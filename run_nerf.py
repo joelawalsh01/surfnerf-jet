@@ -526,7 +526,7 @@ def train():
                                          savedir=testsavedir, render_factor=args.render_factor, pose_indices=i_test)
             print('Done rendering', testsavedir)
             imageio.mimwrite(os.path.join(
-                testsavedir, 'video.mp4'), to8b(rgbs), fps=30, quality=8)
+                testsavedir, 'video.mp4'), to8b(rgbs), fps=30, quality=8,format='FFMPEG')
 
     # Prepare raybatch tensor if batching random rays
     N_rand = args.N_rand
