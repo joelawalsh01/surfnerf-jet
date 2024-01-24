@@ -694,6 +694,10 @@ def train():
             rgb_reshaped = rgb.cpu().detach().numpy().reshape(H, W, 3)
             target_s_reshaped = target_s.cpu().detach().numpy().reshape(H, W, 3)
 
+            # Normalize and convert to the same data type if necessary
+            rgb_reshaped = rgb_reshaped.astype(np.float32) / 255.0
+            target_s_reshaped = target_s_reshaped.astype(np.float32) / 255.0
+
             print(f"rgb_reshaped size :{rgb_reshaped.size} ")
             print(f"target_s_reshaped :{target_s_reshaped.size} ")
 
