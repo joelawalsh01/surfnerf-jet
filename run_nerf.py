@@ -688,8 +688,9 @@ def train():
         if i % args.i_print == 0 or i % args.i_video == 0:
             psnr = mse2psnr(rgb_loss)
 
-            print (f"rgb.cpu().detach().numpy(): {rgb.cpu().detach().numpy()}")
-            print (f"target_s.cpu().detach().numpy(): {target_s.cpu().detach().numpy()} ")
+            print (f"rgb.cpu().detach().numpy(): {rgb.cpu().detach().numpy()} size : {rgb.cpu().detach().numpy().size} ")
+            print (f"target_s.cpu().detach().numpy(): {target_s.cpu().detach().numpy()} size : {target_s.cpu().detach().numpy().size} ")
+            
             ssim = structural_similarity(rgb.cpu().detach().numpy(
             ), target_s.cpu().detach().numpy(), multichannel=True)
             if args.savelogs:
